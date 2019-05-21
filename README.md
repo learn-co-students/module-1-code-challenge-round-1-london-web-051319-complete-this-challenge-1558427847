@@ -51,25 +51,25 @@ We've provided you with a console that you can use to test your code. To enter a
   - Returns a **unique** list of all customers who have reviewed a particular restaurant.
 - `Restaurant#reviews` DONE
   - returns an array of all reviews for that restaurant
-- `Restaurant#average_star_rating`
+- `Restaurant#average_star_rating` done
   - returns the average star rating for a restaurant based on its reviews
-- `Restaurant#longest_review`
+- `Restaurant#longest_review` done
   - returns the longest review content for a given restaurant
 
 ### Class Methods and Properties
 
 #### Build the following methods on the `Customer` class
 
-- `Customer.find_by_name(name)`
+- `Customer.find_by_name(name)` done
   - given a string of a **full name**, returns the **first customer** whose full name matches
-- `Customer.find_all_by_first_name(name)`
+- `Customer.find_all_by_first_name(name)` CORRECTED
   - given a string of a first name, returns an **array** containing all customers with that first name
 - `Customer.all_names`DONE
   - should return an **array** of all of the customer full names
 
 #### Build out the following method on the `Restaurant` class
 
-- `Restaurant.find_by_name(name)`
+- `Restaurant.find_by_name(name)` done
   - given a string of restaurant name, returns the first restaurant that matches
 
 #### Build out the following methods on the `Review` class

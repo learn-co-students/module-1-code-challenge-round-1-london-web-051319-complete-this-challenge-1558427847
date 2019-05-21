@@ -5,6 +5,7 @@ class Restaurant
 
   def initialize(name)
     @name = name
+    @@all << self
   end
 
   def self.all
@@ -19,17 +20,20 @@ class Restaurant
     reviews.map {|review| review.customer}
   end
 
+  def ratings
+    reviews.map {|reviews| reviews.rating}
+  end
+
   def average_star_rating
-    customers.length/reviews.length.to_f
+    ratings.reduce(:+)/ratings.count.to_f
   end
 
   def longest_review
-    Review.all.select do |review| review
-    end
+    reviews.map.max_by {|review| review.restaurant}
   end
 
   def self.find_by_name(restaurant_name)
-    self.all.find {|restaurant| restaurant.name == restaurant_name}
+    self.all.find {|restaurant| restaurant.name}
   end
 
 end

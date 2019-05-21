@@ -22,7 +22,11 @@ class Customer
   end
 
   def restaurants
-    num_reviews.map {|review| review.restaurant}.uniq
+    reviews.map {|review| review.restaurant}.uniq
+  end
+
+  def reviews
+    Review.all.select {|review| review.customer == self}
   end
 
   def num_reviews
@@ -35,7 +39,7 @@ class Customer
   end
 
   def self.find_all_by_first_name(given_first_name)
-    self.all.select {|customer| @first_name == given_first_name}
+    self.all.select {|customer| customer.first_name == given_first_name}
   end
 
   def self.all_names
