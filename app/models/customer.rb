@@ -18,7 +18,7 @@ class Customer
   end
 
   def add_review(restaurant, content, rating)
-    new_review = Review.new(restaurant, self)
+    new_review = Review.new(restaurant, content, rating, self)
 
   end
 
@@ -40,11 +40,22 @@ class Customer
 
   end
 
-
-
-
   def full_name
     "#{first_name} #{last_name}"
   end
+
+  def self.find_by_name(name)
+
+  self.all.find{|customer|customer.full_name == name}
+  end
+
+  def self.find_all_by_first_name(name)
+    self.all.select{|customer|customer.first_name == name}
+
+end
+
+def self.all_names
+  self.all.map{|customer|customer.full_name}
+end
 
 end

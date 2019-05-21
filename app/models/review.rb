@@ -2,15 +2,16 @@
 
 class Review
 
-  attr_reader :customer
-  attr_accessor :restaurant, :rating
+  attr_reader :customer, :restaurant
+  attr_accessor :rating
 
 @@all = []
 
-def initialize(rating, customer, restaurant)
+def initialize(restaurant, content, rating, customer)
+  @restaurant = restaurant
+  @content = content
   @rating = rating
   @customer = customer
-  @restaurant = restaurant
   @@all<< self
 
 end
@@ -29,11 +30,13 @@ def restaurant
 end
 
 def rating
-  @rating
+  if @rating =>1 && <=5)
+    return true
+  else false
 end
 
 def content
-
+@content
 end
 
 end
