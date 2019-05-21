@@ -17,9 +17,9 @@ class Review
 
     def valid_rating?
         if @rating > 5 || @rating < 1
-            puts "Invalid rating"
+            false
         else
-            @rating
+            true
         end
     end
 
@@ -34,6 +34,8 @@ class Review
     def rating
         if valid_rating?
             @rating
+        else
+            "Invalid rating"
         end
     end
 

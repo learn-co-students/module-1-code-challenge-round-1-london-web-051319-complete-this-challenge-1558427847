@@ -19,12 +19,20 @@ class Restaurant
     reviews.map {|review| review.customer}.uniq
   end
 
-  def self.average_star_rating
-    Review.all.length / reviews.rating
+  def average_star_rating
+    count = 0
+    reviews.each do |review| count += review.rating
+    end
+    average = count / reviews.length
   end
 
   def longest_review
-    reviews.max_by{|review| review.content}
+    longest_word = ''
+    reviews.each do |review| if longest_word.length < review.content.length
+      longest_word = review.content
+    end
+  end
+    longest_word
   end
 
   def self.find_by_name(name)
