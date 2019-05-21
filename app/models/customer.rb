@@ -18,19 +18,19 @@ class Customer
   end
 
   def add_review(restaurant, content, rating)
-    Review.new(restaurant, content, rating, self)
+    Review.new(restaurant, content, self, rating)
+  end
+
+  def review
+    Review.all.select {|review| review.customer == self}
   end
 
   def num_reviews
-    count = Review.all.select {|review| review.customer == self}
-    count.count
+    # don't need this anymore => reviews = Review.all.select {|review| review.customer == self} 
+    review.count
   end
 
-  def which_restaurants #restaurants that customer has been to
-    Restaurant.all.select {|restaurant| restaurant.customer == self}
+  def restaurants
+    review.map {|review| review.restaurant}
   end
-
-  # def restaurants
-  #   which_restaurants.map {||}
-  # end
 end
